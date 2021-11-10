@@ -24,7 +24,7 @@ shoe_inv = {"jordan 13":1,
 "air max":5,
 "sb dunk":20
 }
-print(shoe_inv)
+
 
 shoe_inv ["sb dunk"] -= 2
 shoe_inv ["yeezy"] += 1
@@ -38,35 +38,65 @@ shoe_inv ["yeezy"] -= 3
 shoe_inv ["air max"] -= 3
 shoe_inv ["foamposite"] -= 3
 shoe_inv ["jordan 13"] -= 3
-print(shoe_inv)
+
 
 groceries["apples"] = 1.20
 groceries["grapes"] = 2.00
 groceries["rice"] = 3.00
-print(groceries)
+
 
 football_players ["shaquon barkley"] = 26
 football_players ["joe burrow"] = 9
 football_players ["dak prescott"] =4
-print(football_players)
+
 
 shoe_inv["nike"] = 7
 shoe_inv["puma"] = 12
 shoe_inv["polo boots"] = 25
-print(shoe_inv)
+
 
 del shoe_inv["puma"] 
 del shoe_inv["nike"] 
-print(shoe_inv)
+
 
 del football_players["mac jones"]
 del football_players["joe burrow"]
-print(football_players)
+
 
 del groceries["beef"]
 del groceries["rice"]
-print(groceries)
+
+def total_price(food_item, food_item2):
+    total = groceries[food_item] + groceries[food_item2]
+    return total
+
+print (total_price("turkey", "pie"))
+
+def price_diff(food_item, food_item2):
+    diff = groceries[food_item] - groceries[food_item2]
+    return abs(diff)
+
+print (price_diff("turkey", "pie"))
 
 
 
+def shoe_restock(shoe, num):
+    shoe_inv[shoe] *=num
+    return shoe_inv
+print(shoe_restock("yeezy", 3))
 
+def clearence_sale(shoe, num):
+    shoe_inv[shoe] /=num
+    return shoe_inv
+print(clearence_sale("sb dunk", 2))
+
+def football_jersey(dict):
+    largest = 0
+    supply =''
+    for key in dict.keys():
+        if dict [key] > largest:
+            largest = dict[key]
+            supply = key
+    
+    return(supply,largest)
+print(football_jersey(football_players))
